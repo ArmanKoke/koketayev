@@ -1,6 +1,11 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <div class="text">
+      <p>
+        {{ text}}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -9,7 +14,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Here I am Arman!'
+      msg: 'Here I am Arman!',
+      text: 'Just took some money from sister to buy this domain :)'
     }
   }
 }
