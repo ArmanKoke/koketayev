@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by Creative_hat - www.freepik.com</a>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
