@@ -20,8 +20,8 @@ export default {
   props: {},
   data () {
     return {
-      msg: 'Here I am Arman!',
-      text: 'Just took some money from sister to buy this domain :)',
+      msg: 'Hey!',
+      text: 'Welcome to my page',
       reactivity: 'Some reactivity to this boring place!',
 
       staff: '',
