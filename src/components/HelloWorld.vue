@@ -2,7 +2,7 @@
   <div class="hello">
     <h1 v-text="msg"></h1>
     <div class="text">
-      <p v-text="text"></p>
+      <p v-text="text"></p> <a :href="'mailto:' + email" v-text="email_text"></a>
 
       <h3 v-text="reactivity"></h3>
       <ul>
@@ -20,8 +20,10 @@
     props: {},
     data () {
       return {
-        msg: 'Hey!',
-        text: 'Welcome to my page',
+        msg: 'Sup!',
+        text: 'Welcome to my page. Still need many things to do here. Looking for designer, if interested:',
+        email: 'helpkoketayev@gmail.com',
+        email_text: 'Email me',
         reactivity: 'Some reactivity to this boring place!',
 
         staff: '',
