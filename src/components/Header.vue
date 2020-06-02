@@ -14,7 +14,7 @@
         name: 'Header',
         data () {
             return {
-                owner: 'Arman Koketayev'
+                owner: ''
             }
         }
     }
