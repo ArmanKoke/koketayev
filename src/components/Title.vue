@@ -4,13 +4,13 @@
 
 <script>
     export default {
-        name: 'VueTitle',
+        name: 'Title',
         props: ['title'],
         watch: {
             title: {
                 immediate: true,
                 handler() {
-                    document.title = process.env.VUE_APP_TITLE;
+                    document.title = 'Arman'; //todo temporary
                 }
             }
         },
