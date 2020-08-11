@@ -1,16 +1,16 @@
 <template>
     <div id="main">
-        <cards></cards>
+<!--        <cards></cards>-->
     </div>
 </template>
 
 <script>
-    import  Cards from './Cards.vue'
+    // import Cards from './Cards.vue'
 
     export default {
         name: 'Main',
         components: {
-            Cards
+            // Cards
         },
         props: {},
         data () {

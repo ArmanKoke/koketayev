@@ -10,7 +10,7 @@
             title: {
                 immediate: true,
                 handler() {
-                    document.title = 'Arman'; //todo temporary
+                    document.title = 'Arman Koketayev'; //todo temporary
                 }
             }
         },
