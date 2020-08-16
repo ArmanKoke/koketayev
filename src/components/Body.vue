@@ -21,4 +21,11 @@
     top: 100px;
     /*background-color: gainsboro;*/
   }
+
+  @media screen and (max-width: 900px) {
+    #body {
+      width: 100%;
+      height: 100%;
+    }
+  }
 </style>

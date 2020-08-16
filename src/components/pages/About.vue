@@ -1,24 +1,29 @@
 <template>
     <div id="about">
-        <h2>Biography</h2>
-        <p>
-            I was born in <a target="_blank" :href="cityWebsite">Shymkent, Kazakhstan</a>. Studied in
-            <a target="_blank" :href="schoolWebsite">gymnasium #8</a>. Then entered
-            <a target="_blank" :href="universityWebsite">Suleyman Demirel University</a> to Faculty of Engineering & Natural Sciences.
-        </p>
-        <h2>Professional Career</h2>
-        <p>
-            I am Software Developer more than {{yearsOfExperience}} years. Worked in international retail and fintech companies. Worked with the following stack of technologies:
-        </p>
-        <div id="langs">
-            <ul>
-                <li><a :href="phpUrl"  id="php" target="_blank"><icon-base width="50" height="50" viewbox="0 -1 100 50" icon-name="PHP"><Php class="lang_icons" id="php-icon"/></icon-base></a></li>
-                <li><a :href="golangUrl" id="golang" target="_blank"><icon-base width="50" height="50" viewbox="0 0 254.5 225" icon-name="Golang"><Golang class="lang_icons" id="golang-icon"/></icon-base></a></li>
-                <li><a :href="jsUrl" id="js" target="_blank"><icon-base width="50" height="50" viewBox="0 0 256 256" icon-name="Js"><Js class="lang_icons" id="js-icon"/></icon-base></a></li>
-                <li><a :href="sqlUrl" id="sql" target="_blank"><icon-base width="50" height="50" viewBox="0 0 256 252" icon-name="SQL"><Sql class="lang_icons" id="sql-icon"/></icon-base></a></li>
-                <li><a :href="redisUrl" id="redis" target="_blank"><icon-base width="50" height="50" viewbox="0 0 256 220" icon-name="Redis"><Redis class="lang_icons" id="redis-icon"/></icon-base></a></li>
-                <li><a :href="dockerUrl" id="docker" target="_blank"><icon-base width="50" height="50" viewbox="0 0 32 32" icon-name="Docker"><Docker class="lang_icons" id="docker-icon"/></icon-base></a></li>
-            </ul>
+        <div id="photo">
+            <img :src="photo" alt="Will be dope studio photo :)">
+        </div>
+        <div id="description">
+            <h2>Biography</h2>
+            <p>
+                I was born in <a target="_blank" :href="cityWebsite">Shymkent, Kazakhstan</a>. Studied in
+                <a target="_blank" :href="schoolWebsite">gymnasium #8</a>. Then entered
+                <a target="_blank" :href="universityWebsite">Suleyman Demirel University</a> to Faculty of Engineering & Natural Sciences.
+            </p>
+            <h2>Professional Career</h2>
+            <p>
+                I am Software Developer more than {{yearsOfExperience}} years. Worked in international retail and fintech companies. Worked with the following stack of technologies:
+            </p>
+            <div id="langs">
+                <ul>
+                    <li><a :href="phpUrl"  id="php" target="_blank"><icon-base width="50" height="50" viewbox="0 -1 100 50" icon-name="PHP"><Php class="lang_icons" id="php-icon"/></icon-base></a></li>
+                    <li><a :href="golangUrl" id="golang" target="_blank"><icon-base width="50" height="50" viewbox="0 0 254.5 225" icon-name="Golang"><Golang class="lang_icons" id="golang-icon"/></icon-base></a></li>
+                    <li><a :href="jsUrl" id="js" target="_blank"><icon-base width="50" height="50" viewBox="0 0 256 256" icon-name="Js"><Js class="lang_icons" id="js-icon"/></icon-base></a></li>
+                    <li><a :href="sqlUrl" id="sql" target="_blank"><icon-base width="50" height="50" viewBox="0 0 256 252" icon-name="SQL"><Sql class="lang_icons" id="sql-icon"/></icon-base></a></li>
+                    <li><a :href="redisUrl" id="redis" target="_blank"><icon-base width="50" height="50" viewbox="0 0 256 220" icon-name="Redis"><Redis class="lang_icons" id="redis-icon"/></icon-base></a></li>
+                    <li><a :href="dockerUrl" id="docker" target="_blank"><icon-base width="50" height="50" viewbox="0 0 32 32" icon-name="Docker"><Docker class="lang_icons" id="docker-icon"/></icon-base></a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -31,6 +36,7 @@
     import Sql from '../icons/Sql.vue'
     import Redis from '../icons/Redis.vue'
     import Docker from '../icons/Docker.vue'
+    import Polar from "../../assets/polar.png"
 
     export default {
         name: "About",
@@ -41,10 +47,11 @@
             Js,
             Sql,
             Redis,
-            Docker,
+            Docker
         },
         data () {
             return {
+                photo: Polar,
                 yearsOfExperience: new Date().getFullYear() - 2018,
                 cityWebsite: "https://en.wikipedia.org/wiki/Shymkent",
                 schoolWebsite: "http://www.gymnasia8.kz/",
@@ -73,35 +80,74 @@
         color: #2c3e50;
     }
 
-    #about a {
+    #photo {
+        float: left;
+        width: 30%;
+        height: 100%;
+    }
+
+    #photo img {
+        width: 100%;
+        height: auto;
+    }
+
+    #description {
+        float: right;
+        width: 70%;
+        height: 100%;
+    }
+
+    #description a {
         text-decoration: none;
         color: #0072b1;
     }
 
-    #about ul {
+    #description ul {
         margin: 0;
         padding: 0;
     }
 
-    #about li {
+    #description li {
         display: inline-block;
         margin: 0 5px;
         padding: 0 10px;
         transition: all 0.3s ease 0s;
+        filter: grayscale(100%) sepia(100%);
     }
-    #about li:hover {
-
+    #description li:hover {
+        filter: none;
     }
 
     #golang-icon {
         fill: #29BEB0;
     }
 
-    #php-icon {
-        fill: #0072b1;
-    }
-
-    .lang_icons {
-        fill: #1a1a1a;
+    @media screen and (max-width: 800px) {
+        #about {
+            width: 100%;
+            height: 100%;
+            float: none;
+            display: inline-block;
+            align-items: center;
+            text-align: center;
+        }
+        #photo {
+            float: none;
+            display: inline-block;
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            align-items: center;
+        }
+        /*todo change bottom on 900px window*/
+        #description {
+            float: none;
+            display: inline-block;
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
     }
 </style>

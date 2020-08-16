@@ -33,7 +33,7 @@
                 owner: 'Arman ',
                 githubUrl: 'https://github.com/ArmanKoke',
                 linkedinUrl: 'https://www.linkedin.com/in/arman-koketayev/',
-                currentYear: new Date().getFullYear(),
+                currentYear: (new Date().getFullYear() === 2020) ? new Date().getFullYear() : "2020 - " + new Date().getFullYear(),
             }
         }
     }

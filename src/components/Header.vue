@@ -1,19 +1,19 @@
 <template>
     <div id="header">
         <div id="container">
-            <h1><router-link to="/" v-text="owner"></router-link></h1>
+            <h1><router-link to="/" v-text="main"></router-link></h1>
+            <b id="counter">{{ timerCount }}</b>
         </div>
 
         <div id="nav">
             <ul>
                 <li><router-link to="/algo">Algo</router-link></li>
                 <li><router-link to="/about">About</router-link></li>
-                <li><router-link to="/#">Gallery</router-link></li>
-                <li><router-link to="/#">Contact</router-link></li>
+                <li><router-link to="/projects">Projects</router-link></li>
+                <li><router-link to="/contact">Contact</router-link></li>
             </ul>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -21,8 +21,46 @@
         name: 'Header',
         data () {
             return {
-                owner: 'Arman Koketayev'
+                main: "",
+                inspirations: [
+                    "dum spiro, spero",
+                    "fulminare",
+                    "Acta, Non Verba",
+                    "discendo discimus",
+                    "ad astra per aspera"
+                ],
+                timerCount: 130
             }
+        },
+        created () {
+        },
+        destroyed () {
+        },
+        methods: {
+            loop() {
+                let random = Math.floor(Math.random() * this.inspirations.length);
+                return this.main = this.inspirations[random];
+            },
+        },
+        watch: {
+            timerCount: {
+                handler(value) {
+
+                    if (value >= 0) {
+                        setTimeout(() => {
+                            this.timerCount--;
+                        }, 1000);
+                    } else {
+                        this.loop();
+                        this.timerCount = Math.floor(Math.random() * 150);
+                    }
+
+                },
+                immediate: true // This ensures the watcher is triggered upon creation
+            }
+        },
+        mounted() {
+            this.loop()
         }
     }
 </script>
