@@ -16,9 +16,19 @@ export default new Router({
             component: () => import(/* webpackChunkName: "about" */ "./components/pages/About.vue")
         },
         {
-            path: '/algo',
+            path: '/algorithms',
             name: 'algorithms',
-            component: () => import(/* webpackChunkName: "algo" */ "./components/pages/Algorithms.vue")
+            component: () => import(/* webpackChunkName: "algorithms" */ "./components/pages/Algorithms.vue")
+        },
+        {
+            path: '/contact',
+            name: 'contact',
+            component: () => import(/* webpackChunkName: "contact" */ "./components/pages/Contact.vue")
+        },
+        {
+            path: '/projects',
+            name: 'projects',
+            component: () => import(/* webpackChunkName: "projects" */ "./components/pages/Projects.vue")
         },
     ]
 })

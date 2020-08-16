@@ -84,6 +84,7 @@
         float: left;
         width: 30%;
         height: 100%;
+        min-height: 750px; /* height of future photo */
     }
 
     #photo img {
@@ -131,22 +132,22 @@
             align-items: center;
             text-align: center;
         }
-        #photo {
+        #photo, #photo img {
             float: none;
-            display: inline-block;
+            /*display: inline-block;*/
             width: 100%;
             height: 50%;
-            text-align: center;
-            align-items: center;
+            /*text-align: center;*/
+            /*align-items: center;*/
         }
         /*todo change bottom on 900px window*/
         #description {
             float: none;
-            display: inline-block;
+            /*display: inline-block;*/
             width: 100%;
             height: 50%;
             text-align: center;
-            align-items: center;
+            /*align-items: center;*/
             margin-bottom: 20px;
         }
     }
