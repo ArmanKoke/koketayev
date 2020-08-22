@@ -131,23 +131,17 @@
             display: inline-block;
             align-items: center;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         #photo, #photo img {
             float: none;
-            /*display: inline-block;*/
             width: 100%;
-            height: 50%;
-            /*text-align: center;*/
-            /*align-items: center;*/
         }
         /*todo change bottom on 900px window*/
         #description {
             float: none;
-            /*display: inline-block;*/
             width: 100%;
-            height: 50%;
-            text-align: center;
-            /*align-items: center;*/
             margin-bottom: 20px;
         }
     }

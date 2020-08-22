@@ -130,6 +130,7 @@
             float: none;
             align-items: center;
             text-align: center;
+            padding: 20px 0 0 0;
             height: 50%;
             width: 100%;
         }

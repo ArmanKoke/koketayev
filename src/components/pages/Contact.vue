@@ -31,7 +31,6 @@
             <div>
                 <input type="submit" value="Send">
             </div>
-
         </form>
     </div>
 </template>
