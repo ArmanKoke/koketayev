@@ -2,7 +2,7 @@
     <div id="header">
         <div id="container">
             <h1><router-link to="/" v-text="main"></router-link></h1>
-            <b id="counter">{{ timerCount }}</b>
+            <b v-text="new Intl.NumberFormat(something).format(timerCount)"></b>
         </div>
 
         <div id="nav">
@@ -19,26 +19,33 @@
         name: 'Header',
         data () {
             return {
-                main: "",
+                main: '',
                 inspirations: [
-                    "dum spiro, spero",
-                    "fulminare",
-                    "Acta, Non Verba",
-                    "discendo discimus",
-                    "ad astra per aspera"
+                    'dum spiro, spero',
+                    'fulminare',
+                    'Acta, Non Verba',
+                    'discendo discimus',
+                    'ad astra per aspera'
                 ],
-                timerCount: 130
+                timerCount: 130,
+                something: '',
+                numFormats: [
+                    'zh-Hans-CN-u-nu-hanidec',
+                    'ar-EG',
+                    'fa-AF',
+                    'th-TH-u-nu-thai',
+                    'gu-Gu-u-nu-gujr',
+                ],
             }
         },
-        created () {
-            this.timerCount = new Intl.NumberFormat('zh-Hans-CN-u-nu-hanidec')
-        },
-        destroyed () {
-        },
         methods: {
-            loop() {
+            loopI() {
                 let random = Math.floor(Math.random() * this.inspirations.length);
                 return this.main = this.inspirations[random];
+            },
+            loopF() {
+                let random = Math.floor(Math.random() * this.numFormats.length);
+                return this.something = this.numFormats[random];
             },
         },
         watch: {
@@ -50,7 +57,8 @@
                             this.timerCount--;
                         }, 1000);
                     } else {
-                        this.loop();
+                        this.loopI();
+                        this.loopF();
                         this.timerCount = Math.floor(Math.random() * 150);
                     }
 
@@ -59,7 +67,8 @@
             }
         },
         mounted() {
-            this.loop()
+            this.loopI();
+            this.loopF();
         }
     }
 </script>
