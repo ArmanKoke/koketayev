@@ -1,7 +1,9 @@
 <template>
     <div id="about">
-        <div id="photo">
-            <img :src="photo" alt="Will be dope studio photo :)">
+        <div id="photo" @mouseenter="activate" @mouseleave="activate">
+            <transition name="fade">
+                <span v-if="isHovered" id="dummy">{{dummyText}}</span>
+            </transition>
         </div>
         <div id="description">
             <h2>Biography</h2>
@@ -36,7 +38,6 @@
     import Sql from '../icons/Sql.vue'
     import Redis from '../icons/Redis.vue'
     import Docker from '../icons/Docker.vue'
-    import Polar from "../../assets/polar.png"
 
     export default {
         name: "About",
@@ -51,7 +52,6 @@
         },
         data () {
             return {
-                photo: Polar,
                 yearsOfExperience: new Date().getFullYear() - 2018,
                 cityWebsite: "https://en.wikipedia.org/wiki/Shymkent",
                 schoolWebsite: "http://www.gymnasia8.kz/",
@@ -63,6 +63,13 @@
                 sqlUrl: "",
                 redisUrl: "",
                 dockerUrl: "",
+                dummyText: "Will be dope studio photo :)",
+                isHovered: false
+            }
+        },
+        methods: {
+            activate() {
+                this.isHovered = !this.isHovered
             }
         }
     }
@@ -84,17 +91,29 @@
         float: left;
         width: 30%;
         height: 100%;
-        min-height: 750px; /* height of future photo */
+        min-height: 450px; /* height of future photo */
+        border: 1px solid cornflowerblue;
+        align-items: center;
+        display: table;
     }
 
-    #photo img {
-        width: 100%;
-        height: auto;
+    #photo span {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
     }
 
     #description {
         float: right;
-        width: 70%;
+        width: 65%;
         height: 100%;
     }
 
@@ -123,10 +142,12 @@
         fill: #29BEB0;
     }
 
-    @media screen and (max-width: 800px) {
+    /* todo change heights when photo */
+    @media screen and (max-width: 900px) {
         #about {
             width: 100%;
             height: 100%;
+            min-height: 500px;
             float: none;
             display: inline-block;
             align-items: center;
@@ -134,12 +155,15 @@
             margin: 0;
             padding: 0;
         }
-        #photo, #photo img {
+        #photo {
             float: none;
+            height: 30%;
+            min-height: 100px;
             width: 100%;
         }
-        /*todo change bottom on 900px window*/
         #description {
+            height: 50%;
+            min-height: 350px;
             float: none;
             width: 100%;
             margin-bottom: 20px;

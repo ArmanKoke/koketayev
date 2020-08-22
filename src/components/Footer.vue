@@ -119,7 +119,7 @@
         fill: #0072b1;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 800px) {
         #footer {
             position: static;
             float: none;

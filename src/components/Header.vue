@@ -7,9 +7,7 @@
 
         <div id="nav">
             <ul>
-                <li><router-link :to="{ name: 'algorithms' }">Algo</router-link></li>
                 <li><router-link :to="{ name: 'about' }">About</router-link></li>
-                <li><router-link :to="{ name: 'projects' }">Projects</router-link></li>
                 <li><router-link :to="{ name: 'contact' }">Contact</router-link></li>
             </ul>
         </div>
@@ -33,6 +31,7 @@
             }
         },
         created () {
+            this.timerCount = new Intl.NumberFormat('zh-Hans-CN-u-nu-hanidec')
         },
         destroyed () {
         },

@@ -230,7 +230,7 @@
 
     @media screen and (max-width: 900px) {
         .vue-form {
-            min-height: 500px;
+            min-height: 550px;
             width: auto;
         }
     }
